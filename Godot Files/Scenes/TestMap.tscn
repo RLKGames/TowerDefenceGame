@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://phclo84npstf"]
+
+[ext_resource type="Texture2D" uid="uid://eoofno5je4ow" path="res://pngs/TestMap.png" id="1_fn1m4"]
+[ext_resource type="Script" uid="uid://bxc2clj0s8l4e" path="res://Scenes/path_follow_2d.gd" id="2_n6t57"]
+[ext_resource type="Texture2D" uid="uid://nols0ca41ao1" path="res://pngs/icon.svg" id="3_qg828"]
+
+[sub_resource type="Curve2D" id="Curve2D_ahxau"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 372, 301, 0, 0, 0, 0, 438, 300, 0, 0, 0, 0, 438, 198, 0, 0, 0, 0, 511, 197, 0, 0, 0, 0, 515, 399, 0, 0, 0, 0, 411, 404, 0, 0, 0, 0, 410, 471, 0, 0, 0, 0, 656, 473, 0, 0, 0, 0, 652, 365, 0, 0, 0, 0, 580, 359, 0, 0, 0, 0, 578, 267, 0, 0, 0, 0, 656, 266, 0, 0, 0, 0, 653, 159, 0, 0, 0, 0, 553, 162, 0, 0, 0, 0, 551, 92)
+}
+point_count = 15
+
+[node name="TestMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TestMap" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fn1m4")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ahxau")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(372, 301)
+rotation = -0.0151504
+rotates = false
+loop = false
+script = ExtResource("2_n6t57")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+scale = Vector2(0.378386, 0.378386)
+texture = ExtResource("3_qg828")
